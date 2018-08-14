@@ -13,4 +13,4 @@ inputs:
 - name: bin_gpdb
 
 run:
-  path: go/src/github.com/greenplum-db/gpupgrade/ci/scripts/integration-tests.bash
+  path: go/src/github.com/greenplum-db/gpupgrade/ci/scripts/install-tests.bash

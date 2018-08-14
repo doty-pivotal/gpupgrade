@@ -17,6 +17,9 @@ export GOPATH=$PWD/go
 export PATH=$GOPATH/bin:$PATH
 source /usr/local/greenplum-db-devel/greenplum_path.sh
 source gpdb_src/gpAux/gpdemo/gpdemo-env.sh
-make -C $GOPATH/src/github.com/greenplum-db/gpupgrade integration
+
+cd $GOPATH/src/github.com/greenplum-db/gpupgrade
+make
+make check
 EOF
 
