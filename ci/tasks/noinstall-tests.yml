@@ -9,6 +9,7 @@ image_resource:
 inputs:
 - name: gpupgrade_src
   path: ../../../go/src/github.com/greenplum-db/gpupgrade
+- name: bats
 
 run:
   path: bash
@@ -16,6 +17,9 @@ run:
   - -c
   - |
     set -ex
+
+    export TERM=linux
+    ./bats/install.sh /usr/local
 
     cd $GOPATH/src/github.com/greenplum-db/gpupgrade
     make depend

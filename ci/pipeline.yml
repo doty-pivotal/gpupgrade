@@ -19,6 +19,13 @@ resources:
     uri: https://github.com/greenplum-db/gpdb
     branch: master
 
+- name: bats
+  type: git
+  source:
+    uri: https://github.com/bats-core/bats-core
+    branch: master
+    tag_filter: v1.*
+
 - name: slack-alert
   type: slack-notification
   source:
@@ -47,8 +54,10 @@ jobs:
 
 - name: noinstall-tests
   plan:
-  - get: gpupgrade_src
-    trigger: true
+  - aggregate:
+    - get: gpupgrade_src
+      trigger: true
+    - get: bats
   - task: noinstall-tests
     file: gpupgrade_src/ci/tasks/noinstall-tests.yml
     on_failure:
@@ -61,6 +70,7 @@ jobs:
     - get: gpupgrade_src
       trigger: true
     - get: gpdb_src
+    - get: bats
     - get: bin_gpdb
       resource: bin_gpdb_centos6
       trigger: true

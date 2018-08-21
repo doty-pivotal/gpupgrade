@@ -11,6 +11,7 @@ inputs:
   path: go/src/github.com/greenplum-db/gpupgrade
 - name: gpdb_src
 - name: bin_gpdb
+- name: bats
 
 run:
   path: go/src/github.com/greenplum-db/gpupgrade/ci/scripts/install-tests.bash
