@@ -13,6 +13,8 @@ time make_cluster
 time chown -R gpadmin:gpadmin go
 
 su gpadmin <<'EOF'
+set -ex
+
 export GOPATH=$PWD/go
 export PATH=$GOPATH/bin:$PATH
 source /usr/local/greenplum-db-devel/greenplum_path.sh
